@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Note from "./Note";
-import * as data from "./notes.json";
+// import { notes } from "./notes.json";
 import { fetchNotes } from "./actions";
 
 export default function NoteContainer() {
@@ -12,7 +12,7 @@ export default function NoteContainer() {
   return (
     <div className="note-container">
       <h1>NoteContainer</h1>
-      <ul className>
+      <ul className="notes-ul">
         {notes && notes.map((note) => <Note key={note.id} note={note} />)}
       </ul>
     </div>
