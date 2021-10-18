@@ -1,9 +1,7 @@
-import React from 'react';
-
+import React from "react";
+import NoteContainer from "./NoteContainer.js";
 function App() {
-  return (
-    <h1>Hello world!</h1>
-  );
+  return <NoteContainer />;
 }
 
 export default App;
