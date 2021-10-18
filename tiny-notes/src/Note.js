@@ -1,13 +1,21 @@
 import React from "react";
 import { formatDate } from "./utils";
-export default function Note({ note: { content, dateCreated, id } }) {
+import { deleteNote } from "./actions";
+export default function Note({ note: { content, dateCreated, noteId } }) {
+  const date = formatDate(dateCreated);
+
+  const removeNote = (e, noteId) => {
+    e.preventDefault();
+    deleteNote(noteId);
+  };
+
   return (
-    <div className="note">
+    <li className="note">
       <p>{content}</p>
       <footer>
-        <span>{formatDate(dateCreated)}</span>
-        <button>remove</button>
+        <span>{date}</span>
+        <button onClick={(e) => removeNote(e, noteId)}>remove</button>
       </footer>
-    </div>
+    </li>
   );
 }
