@@ -16,10 +16,12 @@ export default function NotesForm() {
   };
 
   return (
-    <div>
+    <div className="options">
       <form onSubmit={submitHandler}>
         <input ref={inputRef} type="text" placeholder="Enter your note..." />
-        <button type="submit">Submit</button>
+        <button style={{ color: "rgb(255, 171, 0)" }} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

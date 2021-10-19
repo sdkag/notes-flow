@@ -13,18 +13,22 @@ export default function Note({
   };
 
   return (
-    <li className="note">
-      <p>{content}</p>
-      <footer>
+    <li id="note" className="note">
+      <div className="note-module">
+        <span>{content}</span>
+      </div>
+      <div className="note-segment">
         <span>{date}</span>
         <button
+          className="remove"
           onClick={(e, thunk) => {
             removeNote(e, noteId, thunk);
           }}
+          style={{ color: "rgb(255, 171,0" }}
         >
           remove
         </button>
-      </footer>
+      </div>
     </li>
   );
 }
