@@ -7,9 +7,9 @@ export default function Note({
 }) {
   const date = formatDate(dateCreated);
 
-  const removeNote = (e, noteId) => {
+  const removeNote = (e, noteId, thunk) => {
     e.preventDefault();
-    deleteNote(noteId);
+    deleteNote(noteId, thunk);
   };
 
   return (
@@ -18,9 +18,8 @@ export default function Note({
       <footer>
         <span>{date}</span>
         <button
-          onClick={(e) => {
-            removeNote(e, noteId);
-            rerender();
+          onClick={(e, thunk) => {
+            removeNote(e, noteId, thunk);
           }}
         >
           remove
