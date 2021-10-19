@@ -19,10 +19,12 @@ export const updateDB = async (writeableJSON) => {
 export const initializeDB = () => updateDB(db);
 // fs.writeFile;
 export const deleteNote = (noteId) => {
-  const newNotes = JSON.parse(localStorage.getItem("db")).notes.filter(
+  if (!noteId) throw Error("noteId is not defined");
+  const notes = JSON.parse(localStorage.getItem("db")).notes.filter(
     (note) => note.id !== noteId
   );
-  updateDB(JSON.stringify({ notes: newNotes }));
+  updateDB(JSON.stringify({ notes }));
+  return noteId;
 };
 
 export const fetchNotes = () => JSON.parse(localStorage.getItem("db")).notes;
