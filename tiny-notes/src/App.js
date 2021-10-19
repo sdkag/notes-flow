@@ -1,9 +1,10 @@
-import React from 'react';
-
+import React, { useEffect } from "react";
+import NoteContainer from "./NoteContainer.js";
+import { initializeDB } from "./actions";
 function App() {
-  return (
-    <h1>Hello world!</h1>
-  );
+  initializeDB();
+  useEffect(() => initializeDB(), []);
+  return <NoteContainer />;
 }
 
 export default App;
