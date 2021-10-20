@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	all: unset;
+}
+
+@font-face {
+	font-family: "Milkshake";
+	src: local('Milkshake'),
+		url(./fonts/Milkshake/Milkshake.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "AftaSerifReg";
+	src: local('AftaSerifReg'),
+		url(./fonts/AftaSerifThin/AftaSerifThin-Regular.otf) format("truetype");
+}
+
+@font-face {
+	font-family: "AftaSerifItalic";
+	src: local('AftaSerifItalic'),
+		url(./fonts/AftaSerifThin/AftaSerifThin-Italic.otf) format("truetype");
+}
+
+@font-face {
+	font-family: "Reey";
+	src: local('Reey'),
+		url(./fonts/Reey/Reey-Regular.otf) format("truetype");
+}
+
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	box-shadow: none;
+	outline: #000 dotted 2px;
+	outline-offset: .05em;
+}

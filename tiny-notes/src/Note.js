@@ -7,25 +7,28 @@ export default function Note({
 }) {
   const date = formatDate(dateCreated);
 
-  const removeNote = (e, noteId) => {
+  const removeNote = (e, noteId, thunk) => {
     e.preventDefault();
-    deleteNote(noteId);
+    deleteNote(noteId, thunk);
   };
 
   return (
-    <li className="note">
-      <p>{content}</p>
-      <footer>
+    <li id="note" className="note">
+      <div className="note-module">
+        <span>{content}</span>
+      </div>
+      <div className="note-segment">
         <span>{date}</span>
         <button
-          onClick={(e) => {
-            removeNote(e, noteId);
-            rerender();
+          className="remove"
+          onClick={(e, thunk) => {
+            removeNote(e, noteId, thunk);
           }}
+          style={{ color: "rgb(255, 171,0" }}
         >
           remove
         </button>
-      </footer>
+      </div>
     </li>
   );
 }

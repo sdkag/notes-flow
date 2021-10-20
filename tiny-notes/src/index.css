@@ -1,1 +1,140 @@
-/* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=DM+Sans&family=Courier+Prime&display=swap');
+
+.app-name {
+	box-sizing: border-box;
+	font-family: 'Audiowide', 'cursive';
+}
+
+li,
+ul.reset,
+ul.reset li,
+ul.reset ul li {
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+	list-style-type: none;
+}
+
+body {
+	margin: 0 auto;
+	max-width: 80em;
+}
+
+button,
+a {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+	font-size: 1.5rem;
+}
+
+.container {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 150px auto 150px;
+	grid-template-rows: auto;
+	grid-gap: 1em;
+}
+
+.container>* {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.container header {
+	font-family: 'DM Sans', sans-serif;
+	justify-content: space-between;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	font-size: 7rem;
+	text-align: center;
+}
+
+aside button {
+	font-size: 2.5rem;
+}
+
+.app-name {
+	padding-bottom: 2rem;
+}
+
+.options {
+	display: flex;
+	justify-content: space-around;
+	font-size: 1rem;
+	width: 75%;
+}
+
+.note-segment {
+	display: flex;
+	justify-content: space-between;
+}
+
+#notebook {
+	height: 500px;
+	font-family: 'Courier Prime', monospace;
+	width: 500px;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+}
+
+li.note#note {
+	font-family: 'Courier Prime', monospace;
+	text-align: left;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	height: 20%;
+	border: 1px solid #eaeaea;
+	border-radius: 0.25rem;
+	padding: 1rem
+}
+
+#note {
+
+	text-align: left;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	height: 20%;
+	border: 1px solid #eaeaea;
+	border-radius: 0.25rem;
+	padding: 1rem
+}
+
+form {
+	margin-top: 2rem;
+	padding: 0 1rem;
+	display: flex;
+	justify-content: space-around;
+	width: 500px;
+}
+
+
+header,
+footer {
+	grid-column: 1 / 4;
+	margin: 0 4rem;
+}
+
+@media all and (max-width: 700px) {
+
+	aside,
+	main {
+		grid-column: 1 / 4;
+	}
+
+	main {
+		font-size: 4rem;
+	}
+}
