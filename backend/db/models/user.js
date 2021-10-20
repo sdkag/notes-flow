@@ -11,20 +11,27 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    {}
+    { timestamps: false }
   );
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Note, {
+      foreignKey: "userId",
+      as: "notes",
+    });
   };
-
-  User.get = async function (id) {
-    return await User.findByPk(id);
+  User.login = async function (username) {
+    return await User.findOrCreate({
+      where: { username },
+      include: "notes",
+    });
   };
 
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
-    const { id, username } = this; // context will be the User instance
-    return { id, username };
+    const { id, username, created } = this; // context will be the User instance
+    console.log("\n\n\n\n\n\n", this, "\n\n\n\n\n\n");
+    return { id, username, created: Boolean(created) };
   };
 
   return User;
