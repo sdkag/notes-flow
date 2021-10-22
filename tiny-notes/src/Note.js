@@ -3,9 +3,9 @@ import { formatDate } from "./utils";
 import { deleteNote } from "./actions";
 export default function Note({
   rerender,
-  note: { content, dateCreated, id: noteId },
+  note: { content, createdAt, id: noteId },
 }) {
-  const date = formatDate(dateCreated);
+  const date = formatDate(createdAt);
 
   const removeNote = (e, noteId, thunk) => {
     e.preventDefault();

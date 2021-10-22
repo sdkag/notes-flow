@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Note from "./Note";
 import NotesForm from "./NotesForm.js";
 import "./index.css";
 // import { notes } from "./notes.json";
-import { fetchNotes } from "./actions";
 
-export default function NoteContainer() {
-  const notes = fetchNotes();
-  const [_, rerender] = useState(); //ever want to trigger a rerender?
-
-  new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).format(new Date());
-
+export default function NoteContainer({ rerender, notes, setNotes }) {
+  // new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).format(new Date());
+  console.log(notes);
   return (
     <div className="container">
       <header></header>
@@ -32,7 +28,7 @@ export default function NoteContainer() {
               ))}
           </div>
         </div>
-        <NotesForm />
+        <NotesForm rerender={rerender} />
       </main>
       <aside>
         <button id="button-right">&gt;</button>
