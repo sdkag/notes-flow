@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
   );
   Note.associate = function (models) {
     // associations can be defined here
-    Note.belongsTo(models.User, { as: "author" });
+    Note.belongsTo(models.User, {
+      as: "author",
+      foreignKey: "userId",
+    });
   };
   return Note;
 };

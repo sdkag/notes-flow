@@ -21,17 +21,15 @@ export const deleteNote = (noteId, thunk) => {
   return noteId;
 };
 
-export const addNote = (newNote) => {
-  if (!newNote) throw Error("note is not defined");
-  const notes = JSON.parse(localStorage.getItem("notes"));
-  const note = {
-    id: notes.length + 1,
-    dateCreated: new Date(),
-    ...newNote,
-  };
-  notes.push(note);
-  debugger;
-  updateDB(notes);
-  return note;
+export const addNote = async (newNote) => {
+  const response = await fetch("/api/notes", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newNote),
+  });
+  return await response.json();
 };
-export const fetchNotes = () => JSON.parse(localStorage.getItem("notes"));
+export const fetchNotes = async () => {
+  const { notes } = await fetch("/api/notes").then((res) => res.json());
+  return notes;
+};

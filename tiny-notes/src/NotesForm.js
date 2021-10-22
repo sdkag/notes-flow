@@ -1,7 +1,7 @@
 import React from "react";
 import { addNote } from "./actions";
 
-export default function NotesForm() {
+export default function NotesForm({ rerender }) {
   const inputRef = React.useRef();
 
   React.useEffect(() => {
@@ -11,7 +11,7 @@ export default function NotesForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     const content = inputRef.current.value;
-    addNote({ content });
+    addNote({ content }).then(() => rerender());
     inputRef.current.value = "";
   };
 
